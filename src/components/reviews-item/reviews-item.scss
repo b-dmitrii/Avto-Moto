@@ -1,0 +1,115 @@
+.reviews__author {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+
+  color: $grey;
+}
+
+.reviews__item--main {
+  position: relative;
+}
+
+.reviews__item--main::after {
+  content: "";
+
+  position: absolute;
+  bottom: -22px;
+  left: 0;
+
+  display: block;
+  width: 100%;
+  height: 1px;
+
+  background-color: rgba($black, 0.2);
+}
+
+.reviews__item--advantages,
+.reviews__item--disadvantages {
+  position: relative;
+
+  padding-left: 19px;
+}
+
+.reviews__item--advantages::before,
+.reviews__item--disadvantages::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.reviews__item--advantages::before {
+  content: "+";
+
+  color: $red;
+}
+
+.reviews__item--disadvantages::before {
+  content: "–";
+
+  color: $red;
+}
+
+.reviews__subtitle {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+
+  color: $black;
+}
+
+.reviews__value {
+  margin-top: 5px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+
+  color: $black;
+}
+
+.reviews__footer {
+  margin-top: 25px;
+}
+
+.reviews__posted {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+
+  color: $black;
+
+  opacity: 0.4;
+}
+
+.reviews__reply-link {
+  margin-left: 27px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+
+  text-decoration: none;
+
+  color: $red;
+
+  &:hover {
+    color: $hover-red;
+
+    text-decoration: underline;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}

@@ -1,0 +1,15 @@
+.reviews__list {
+  display: flex;
+  flex-direction: column;
+
+  list-style: none;
+
+  &--main {
+    gap: 41px;
+  }
+
+  &--options {
+    margin-top: 12px;
+    gap: 13px;
+  }
+}

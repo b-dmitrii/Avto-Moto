@@ -1,6 +1,6 @@
 import React from "react";
 
-const GalleryPreviewItem = ({small, alt}) => {
+const GalleryPreviewItem = ({small, alt}) => {  
   
   return (
     <li className="gallery__preview">
@@ -9,7 +9,7 @@ const GalleryPreviewItem = ({small, alt}) => {
         src={small}
         alt={alt}
         width="128"
-        height="80"
+        height="80"            
       />
     </li>
   );

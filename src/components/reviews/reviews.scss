@@ -1,0 +1,31 @@
+.reviews {
+  position: relative;
+  margin-top: 30px;
+}
+
+.reviews__review-button {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 9px;
+  padding-right: 18px;
+  padding-left: 18px;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  padding: 16.5px 20px;
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid $red;
+  color: $red;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: $white;
+    background-color: $red;
+  }
+}
