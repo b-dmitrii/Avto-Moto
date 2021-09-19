@@ -15,7 +15,7 @@ const Header = () => {
           <ul className="header__nav-list">
             {
               navItem.map(item => (
-                <li className="header__nav-item">
+                <li className="header__nav-item" key={`header__nav-${item}`}>
                 <a href={item} className="header__nav-link">
                   {item}
                 </a>

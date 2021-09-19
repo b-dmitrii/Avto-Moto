@@ -1,7 +1,6 @@
 import React from "react";
 
-const CharacteristicsItem = ({ type, value }) => {
-  console.log(type)
+const CharacteristicsItem = ({ type, value }) => {  
   return (
     <li className="char__item">
       <span className="char__type">{type}</span>

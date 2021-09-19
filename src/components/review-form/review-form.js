@@ -95,7 +95,7 @@ const ReviewsForm = ({ onSubmit }) => {
 
               return (
                 <>
-                  <label className="star__label">
+                  <label className="star__label" key={`star__label-${star}`}>
                     <input
                       className="stars__input visually-hidden"
                       name="rating"
