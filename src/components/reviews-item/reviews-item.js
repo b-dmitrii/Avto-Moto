@@ -46,7 +46,7 @@ const ReviewsItem = ({
       <Rating value={stars} />
       <div className="reviews__footer">
         <span className="reviews__posted">{formatDistance(new Date(time) , new Date(), {locale: ru, addSuffix: true})}</span>
-        <a href="" className="reviews__reply-link">Ответить</a>
+        <a href="ответ" className="reviews__reply-link">Ответить</a>
       </div>
     </li>
   );

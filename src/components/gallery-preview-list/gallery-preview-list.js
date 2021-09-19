@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import GalleryPreviewItem from "../gallery-preview-item/gallery-preview-item";
 

@@ -1,55 +1,46 @@
-import React, {useState, useEffect} from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from "react";
 
-const STARS_COUNT = 5;
-
-const ReviewsForm = ({
-  onSubmit
-}) => {
+const ReviewsForm = ({ onSubmit }) => {
   const [name, setName] = useState(``);
-  const [advantages, setAdvantages] = useState(``);
-  const [disadvantages, setDisadvantages] = useState(``);
-  const [comment, setComment] = useState(``);
-  const [rating, setRating] = useState(null);
+  const [plus, setMinus] = useState(``);
+  const [minus, setPlus] = useState(``);
+  const [comments, setComments] = useState(``);
+  const [stars, setStars] = useState(null);
+  const [hover, setHover] = useState(null) 
 
   const onFormSubmit = (evt) => {
     evt.preventDefault();
 
-    const now = new Date();
-    now.setSeconds(now.getSeconds() - 1);
+    const now = new Date();    
 
-    const data = {
-      author: name,
-      advantages,
-      disadvantages,
-      comment,
-      rating,
-      posted: now.toISOString()
+    const review = {
+      name,
+      plus,
+      minus,
+      comments,
+      stars,
+      time: now
     };
 
     localStorage.setItem(`name`, name);
-    localStorage.setItem(`advantages`, advantages);
-    localStorage.setItem(`disadvantages`, disadvantages);
-    localStorage.setItem(`comment`, comment);
-    localStorage.setItem(`rating`, rating);
-
-    onSubmit(data);
+    localStorage.setItem(`plus`, plus);
+    localStorage.setItem(`minus`, minus);
+    localStorage.setItem(`comments`, comments);
+    localStorage.setItem(`stars`, stars);    
+    
+    onSubmit(review);
   };
 
   useEffect(() => {
     setName(() => localStorage.getItem(`name`) || ``);
-    setAdvantages(() => localStorage.getItem(`advantages`) || ``);
-    setDisadvantages(() => localStorage.getItem(`disadvantages`) || ``);
-    setComment(() => localStorage.getItem(`comment`) || ``);
-    setRating(() => +localStorage.getItem(`rating`) || null);
+    setMinus(() => localStorage.getItem(`plus`) || ``);
+    setPlus(() => localStorage.getItem(`minus`) || ``);
+    setComments(() => localStorage.getItem(`comments`) || ``);
+    setStars(() => +localStorage.getItem(`stars`) || null);
   }, []);
 
   return (
-    <form
-      action="post"
-      className="reviews-form"
-      onSubmit={onFormSubmit}
-    >
+    <form action="post" className="reviews-form" onSubmit={onFormSubmit}>
       <h2 className="reviews-form__title">Оставить отзыв </h2>
       <label className="visually-hidden" htmlFor="reviews-form-name">
         Имя
@@ -77,9 +68,9 @@ const ReviewsForm = ({
         type="text"
         placeholder="Достоинства"
         onChange={(evt) => {
-          setAdvantages(evt.target.value);
+          setMinus(evt.target.value);
         }}
-        value={advantages}
+        value={plus}
       />
       <label className="visually-hidden" htmlFor="reviews-form-disadvantages">
         Недостатки
@@ -90,35 +81,44 @@ const ReviewsForm = ({
         type="text"
         placeholder="Недостатки"
         onChange={(evt) => {
-          setDisadvantages(evt.target.value);
+          setPlus(evt.target.value);
         }}
-        value={disadvantages}
+        value={minus}
       />
       <div className="reviews-form__rating-container">
         <h3 className="reviews-form__subtitle">Оцените товар:</h3>
-        <div className="reviews-form__stars stars">
-          {
-            Array(STARS_COUNT).map((star, idx) =>
-              <React.Fragment key={`rating-star-${index}`}>
-                <input
-                  className="stars__input visually-hidden"
-                  name="rating"
-                  value={STARS_COUNT - index}
-                  id={`${STARS_COUNT - index}-stars`}
-                  type="radio"
-                  onChange={() => {
-                    setRating(() => STARS_COUNT - index);
-                  }}
-                  checked={rating === STARS_COUNT - index}
-                />
-                <label htmlFor={`${STARS_COUNT - index}-stars`} className="stars__label" title="Звезда рейтинга">
-                  <svg className="stars__icon" width="27" height="25">
-                    <use xlinkHref="#icon-star"></use>
-                  </svg>
-                </label>
-              </React.Fragment>
-            )
-          }
+        <div className="reviews-form__stars">
+          {Array(5)
+            .fill("")
+            .map((star, idx) => {
+              const ratingValue = idx + 1;
+
+              return (
+                <>
+                  <label className="star__label">
+                    <input
+                      className="stars__input visually-hidden"
+                      name="rating"
+                      value={ratingValue}
+                      type="radio"
+                      onClick={() => setStars(ratingValue)}
+                    />
+                    <svg
+                      className="stars__icon"
+                      fill={
+                        ratingValue <= (hover || stars) ? "#d12136" : "#bdbec2"
+                      }
+                      width="27"
+                      height="25"
+                      onMouseEnter={() => setHover(ratingValue)}
+                      onMouseLeave={() => setHover(null)}
+                    >
+                      <use xlinkHref="#icon-star"></use>
+                    </svg>
+                  </label>
+                </>
+              );
+            })}
         </div>
       </div>
       <label className="visually-hidden" htmlFor="reviews-form-comment">
@@ -131,24 +131,20 @@ const ReviewsForm = ({
           placeholder="Комментарий"
           required
           onChange={(evt) => {
-            setComment(evt.target.value);
+            setComments(evt.target.value);
           }}
-          value={comment}
+          value={comments}
         />
       </div>
       <button
-        className="reviews-form__submit link"
+        className="reviews-form__submit reviews-form__submit-button "
         type="submit"
-        disabled={name.length === 0 || comment.length === 0 || rating === null}
+        disabled={name.length === 0 || comments.length === 0}
       >
         оставить отзыв
       </button>
     </form>
   );
-};
-
-ReviewsForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired
 };
 
 export default ReviewsForm;

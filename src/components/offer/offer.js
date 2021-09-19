@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import { MyContext } from '../../context';
 import Gallery from '../gallery/gallery';
@@ -10,6 +10,17 @@ import Contacts from '../contacts/contacts';
 
 const Offer = () => {  
   const {characteristics, reviews} = useContext(MyContext)
+  const [review, setReview] = useState([...reviews]);
+
+console.log(review)
+
+  const onReviewAdd = (review) => {
+    setReview((prevReviews) => [
+      review,
+      ...prevReviews
+    ]);    
+  };
+
   return (
     <section className="offer">
       <div className="container">
@@ -17,7 +28,7 @@ const Offer = () => {
         <OfferDescription /> 
         <Tabs>
           <CharacteristicsList characteristics={characteristics} />
-          <Reviews reviews={reviews}/>
+          <Reviews reviews={review} onReviewAdd={onReviewAdd}/>
           <Contacts />
         </Tabs>      
       </div>
