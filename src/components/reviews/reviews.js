@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
+import PropTypes from 'prop-types';
+
 import ReviewsList from "../reviews-list/reviews-list";
 import Modal from "../reviews-modal/reviews-modal";
 import ReviewsForm from "../review-form/review-form";
 
-const Reviews = ({ reviews, onReviewAdd }) => {
+const Reviews = ({reviews, onReviewAdd}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const onFormSubmit = (data) => {
@@ -34,6 +36,11 @@ const Reviews = ({ reviews, onReviewAdd }) => {
       </Modal>
     </div>
   );
+};
+
+Reviews.propTypes = {
+  reviews: PropTypes.array.isRequired,
+  onReviewAdd: PropTypes.func
 };
 
 export default Reviews;

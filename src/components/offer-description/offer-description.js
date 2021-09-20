@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, {useContext} from "react";
 
-import { MyContext } from "../../context";
+import {MyContext} from "../../context";
 import ConfigurationList from "../configuration-list/configuration-list";
 
 const OfferDescription = () => {
-  const { title, configurations, price, oldPrice } = useContext(MyContext);
+  const {title, configurations, price, oldPrice} = useContext(MyContext);
 
   return (
     <section className="offer-description">
@@ -22,11 +22,11 @@ const OfferDescription = () => {
         )}
       </div>
       <div className="offer-description__links-container">
-        <a href="##" className="offer-description__link">
+        <a href="" className="offer-description__link">
           оставить заявку
         </a>
         <a
-          href="##"
+          href=""
           className="offer-description__link offer-description__link--secondary"
         >
           в кредит от 11 000 ₽

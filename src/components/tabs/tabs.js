@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
 
-import { tabTitles } from '../../utils';
+import {tabTitles} from '../../utils';
 
 const Tabs = ({children}) => {
   const [currentTab, setCurrentTab] = useState(0);
@@ -30,6 +31,13 @@ const Tabs = ({children}) => {
       }
     </section>
   );
+};
+
+Tabs.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ])
 };
 
 export default Tabs;

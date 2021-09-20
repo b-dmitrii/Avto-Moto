@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import React, {useContext} from 'react';
 
-import { MyContext } from '../../context';
+import {MyContext} from '../../context';
 
 import CharacteristicsItem from '../characteristics-item/characteristics-item';
 
 
 const CharacteristicsList = () => {
   const {characteristics} = useContext(MyContext);
-  
+
   return (
     <ul className="char__list">
       {

@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
+import PropTypes from 'prop-types';
 
-const ReviewsForm = ({ onSubmit }) => {
+const ReviewsForm = ({onSubmit}) => {
   const [name, setName] = useState(``);
   const [plus, setMinus] = useState(``);
   const [minus, setPlus] = useState(``);
   const [comments, setComments] = useState(``);
   const [stars, setStars] = useState(null);
-  const [hover, setHover] = useState(null) 
+  const [hover, setHover] = useState(null);
 
   const onFormSubmit = (evt) => {
     evt.preventDefault();
 
-    const now = new Date();    
+    const now = new Date();
 
-    const review = {
+    const data = {
       name,
       plus,
       minus,
@@ -26,9 +27,9 @@ const ReviewsForm = ({ onSubmit }) => {
     localStorage.setItem(`plus`, plus);
     localStorage.setItem(`minus`, minus);
     localStorage.setItem(`comments`, comments);
-    localStorage.setItem(`stars`, stars);    
-    
-    onSubmit(review);
+    localStorage.setItem(`stars`, stars);
+
+    onSubmit(data);
   };
 
   useEffect(() => {
@@ -89,13 +90,13 @@ const ReviewsForm = ({ onSubmit }) => {
         <h3 className="reviews-form__subtitle">Оцените товар:</h3>
         <div className="reviews-form__stars">
           {Array(5)
-            .fill("")
+            .fill(``)
             .map((star, idx) => {
               const ratingValue = idx + 1;
 
               return (
                 <>
-                  <label className="star__label" key={`star__label-${star}`}>
+                  <label className="star__label">
                     <input
                       className="stars__input visually-hidden"
                       name="rating"
@@ -106,7 +107,7 @@ const ReviewsForm = ({ onSubmit }) => {
                     <svg
                       className="stars__icon"
                       fill={
-                        ratingValue <= (hover || stars) ? "#d12136" : "#bdbec2"
+                        ratingValue <= (hover || stars) ? `#d12136` : `#bdbec2`
                       }
                       width="27"
                       height="25"
@@ -137,14 +138,18 @@ const ReviewsForm = ({ onSubmit }) => {
         />
       </div>
       <button
-        className="reviews-form__submit reviews-form__submit-button "
+        className="reviews-form__submit link"
         type="submit"
-        disabled={name.length === 0 || comments.length === 0}
+        disabled={name.length === 0 || comments.length === 0 || stars === null}
       >
         оставить отзыв
       </button>
     </form>
   );
+};
+
+ReviewsForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired
 };
 
 export default ReviewsForm;

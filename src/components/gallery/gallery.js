@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, {useContext, useState} from "react";
 
 import GalleryPreviewList from "../gallery-preview-list/gallery-preview-list";
 
-import { MyContext } from "../../context";
+import {MyContext} from "../../context";
 
 const Gallery = () => {
-  const { images } = useContext(MyContext);
+  const {images} = useContext(MyContext);
   const [currentSlide, setCurrentSlide] = useState(0);
   const slide = images[currentSlide];
 

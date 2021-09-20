@@ -2,7 +2,7 @@ import React from 'react';
 
 import logo from '../../assets/image/svg/logo.svg';
 
-import { navItem } from '../../utils';
+import {navItem} from '../../utils';
 
 const Header = () => {
   return (
@@ -14,14 +14,14 @@ const Header = () => {
         <nav className="header__nav">
           <ul className="header__nav-list">
             {
-              navItem.map(item => (
+              navItem.map((item) => (
                 <li className="header__nav-item" key={`header__nav-${item}`}>
-                <a href={item} className="header__nav-link">
-                  {item}
-                </a>
-              </li>
+                  <a href={item} className="header__nav-link">
+                    {item}
+                  </a>
+                </li>
               ))
-            }           
+            }
           </ul>
         </nav>
       </div>

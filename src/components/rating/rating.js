@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const PERCENT_PER_RATE = 20;
 
-const Rating = ({ 
+const Rating = ({
   value
 }) => {
   return (
@@ -14,6 +15,10 @@ const Rating = ({
       <span className="visually-hidden">Рейтинг</span>
     </div>
   );
+};
+
+Rating.propTypes = {
+  value: PropTypes.number
 };
 
 export default Rating;

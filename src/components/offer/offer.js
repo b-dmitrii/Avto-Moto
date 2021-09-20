@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, {useContext, useState} from "react";
 
-import { MyContext } from "../../context";
+import {MyContext} from "../../context";
 import Gallery from "../gallery/gallery";
 import OfferDescription from "../offer-description/offer-description";
 import CharacteristicsList from "../characteristics-list/characteristics-list";
@@ -9,7 +9,7 @@ import Reviews from "../reviews/reviews";
 import Contacts from "../contacts/contacts";
 
 const Offer = () => {
-  const { characteristics, reviews } = useContext(MyContext);
+  const {characteristics, reviews} = useContext(MyContext);
   const [review, setReview] = useState([...reviews]);
 
   const onReviewAdd = (review) => {

@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import ReactDOM from "react-dom";
 
-const Modal = ({ children, onCancel, isOpen }) => {
+const Modal = ({children, onCancel, isOpen}) => {
   const onEscKeydown = React.useCallback(
-    (evt) => {
-      if (evt.key === `Escape`) {
-        onCancel();
-      }
-    },
-    [onCancel]
+      (evt) => {
+        if (evt.key === `Escape`) {
+          onCancel();
+        }
+      },
+      [onCancel]
   );
 
   useEffect(() => {
@@ -24,26 +24,26 @@ const Modal = ({ children, onCancel, isOpen }) => {
   return (
     isOpen &&
     ReactDOM.createPortal(
-      <section className="modal">
-        <div className="modal__overlay" onClick={onCancel}>
-          <div
-            className="modal__content-container"
-            onClick={(evt) => {
-              evt.stopPropagation();
-            }}
-          >
-            <button
-              className="modal__close-button"
-              onClick={onCancel}
-              type="button"
+        <section className="modal">
+          <div className="modal__overlay" onClick={onCancel}>
+            <div
+              className="modal__content-container"
+              onClick={(evt) => {
+                evt.stopPropagation();
+              }}
             >
+              <button
+                className="modal__close-button"
+                onClick={onCancel}
+                type="button"
+              >
               Закрыть модальное окно
-            </button>
-            {children}
+              </button>
+              {children}
+            </div>
           </div>
-        </div>
-      </section>,
-      document.body
+        </section>,
+        document.body
     )
   );
 };

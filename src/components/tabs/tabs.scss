@@ -1,8 +1,13 @@
+.tabs {
+  margin-top: 33px;
+  margin-left: 6px;
+}
+
 .tabs__list {
   display: flex;
 
   list-style: none;
-}
+ }
 
 .tabs__button {
   width: 195px;
