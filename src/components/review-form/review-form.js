@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const ReviewsForm = ({onSubmit}) => {
   const [name, setName] = useState(``);
@@ -20,7 +20,7 @@ const ReviewsForm = ({onSubmit}) => {
       minus,
       comments,
       stars,
-      time: now
+      time: now,
     };
 
     localStorage.setItem(`name`, name);
@@ -95,7 +95,7 @@ const ReviewsForm = ({onSubmit}) => {
               const ratingValue = idx + 1;
 
               return (
-                <>
+                <React.Fragment key={`star-${idx}`}>
                   <label className="star__label">
                     <input
                       className="stars__input visually-hidden"
@@ -117,7 +117,7 @@ const ReviewsForm = ({onSubmit}) => {
                       <use xlinkHref="#icon-star"></use>
                     </svg>
                   </label>
-                </>
+                </React.Fragment>
               );
             })}
         </div>
@@ -138,7 +138,7 @@ const ReviewsForm = ({onSubmit}) => {
         />
       </div>
       <button
-        className="reviews-form__submit link"
+        className="reviews-form__submit reviews-form__submit-button"
         type="submit"
         disabled={name.length === 0 || comments.length === 0 || stars === null}
       >
@@ -149,7 +149,7 @@ const ReviewsForm = ({onSubmit}) => {
 };
 
 ReviewsForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default ReviewsForm;
