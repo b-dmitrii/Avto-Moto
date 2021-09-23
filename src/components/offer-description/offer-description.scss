@@ -7,7 +7,8 @@
 }
 
 .offer-description__price-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
   align-items: center;
   gap: 36px;
   margin-top: 36px;
@@ -52,7 +53,7 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  gap: 16px;
+  
 
   margin-top: 37px;
   margin-left: -3px;
@@ -60,7 +61,7 @@
 
 .offer-description__link {
   padding: 16.5px 20px;
-
+  
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -92,6 +93,10 @@
     filter: grayscale(1) opacity(0.8);
     cursor: not-allowed;
   }
+}
+
+.offer-description__link:not(:last-child) {
+  margin-bottom: 17px;
 }
 
 .offer-description__link--secondary {
