@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 39px;
-  margin-top: 16px;
+  margin-top: 16px;  
 }
 
 .gallery--new .gallery__img-container::before {
@@ -16,7 +16,7 @@
 .gallery__img-container::before {
   display: block;
   background-color: $red;
-  padding: 7px 27px 9px;
+  padding: 7px 27px 9px;  
 
   position: absolute;
   top: 0;

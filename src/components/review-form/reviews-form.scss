@@ -162,3 +162,12 @@
     cursor: not-allowed;
   }
 }
+
+.star__label svg {
+  cursor: pointer;  
+}
+
+.stars__input:focus  + svg {
+ border: 2px solid $hover-red;
+ border-radius: 50%;
+}

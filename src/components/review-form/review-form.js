@@ -106,7 +106,7 @@ const ReviewsForm = ({onSubmit}) => {
                     />
                     <svg
                       className="stars__icon"
-                      fill={
+                      fill= {
                         ratingValue <= (hover || stars) ? `#d12136` : `#bdbec2`
                       }
                       width="27"
