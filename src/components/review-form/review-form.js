@@ -40,6 +40,7 @@ const ReviewsForm = ({onSubmit}) => {
     setStars(() => +localStorage.getItem(`stars`) || null);
   }, []);
 
+
   return (
     <form action="post" className="reviews-form" onSubmit={onFormSubmit}>
       <h2 className="reviews-form__title">Оставить отзыв </h2>

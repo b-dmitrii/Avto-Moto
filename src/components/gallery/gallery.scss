@@ -1,8 +1,8 @@
 .gallery {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 39px;
   margin-top: 16px;  
+  margin-right: 57px;
 }
 
 .gallery--new .gallery__img-container::before {

@@ -3,9 +3,8 @@
 }
 
 .offer .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;  
-  gap: 57px;
+  display: flex;
+  flex-wrap: wrap;    
 }
 
 .offer__gallery {

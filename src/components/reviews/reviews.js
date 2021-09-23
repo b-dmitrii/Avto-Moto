@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import PropTypes from 'prop-types';
 
 import ReviewsList from "../reviews-list/reviews-list";
@@ -12,6 +12,11 @@ const Reviews = ({reviews, onReviewAdd}) => {
     onReviewAdd(data);
     setIsModalOpen(() => false);
   };
+
+  useEffect(() => {
+    const body = document.querySelector(`body`);
+    body.style.overflow = isModalOpen ? `hidden` : `auto`;
+  }, [isModalOpen]);
 
   return (
     <div className="reviews">
