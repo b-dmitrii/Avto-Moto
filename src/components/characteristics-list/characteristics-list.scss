@@ -1,7 +1,5 @@
-.char__list {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+.char__list { 
+  display: grid;  
   gap: 28px;
 
   margin-top: 30px;
