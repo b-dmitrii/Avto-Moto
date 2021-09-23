@@ -19,8 +19,11 @@ const Offer = () => {
   return (
     <section className="offer">
       <div className="container">
-        <Gallery />
-        <OfferDescription />
+        <div className="offer-wrapper">
+          <Gallery />
+          <OfferDescription />
+        </div>
+
         <Tabs>
           <CharacteristicsList characteristics={characteristics} />
           <Reviews reviews={review} onReviewAdd={onReviewAdd} />
