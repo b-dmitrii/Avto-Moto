@@ -1,5 +1,6 @@
 .gallery__previews-list {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 25px;
   margin: 0 31px;
 

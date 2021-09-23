@@ -1,7 +1,5 @@
 .reviews__list {
-  display: flex;
-  flex-direction: column;
-
+  display: grid; 
   list-style: none;
 
   &--main {
