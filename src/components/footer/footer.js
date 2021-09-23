@@ -11,7 +11,7 @@ const Footer = () => {
             {footerNavItem.map((item) => {
               return (
                 <li className="footer__nav__item" key={`footer__nav__item-${item}`}>
-                  <a href='' className="footer__nav__link">
+                  <a href={`/${item}`} className="footer__nav__link">
                     {item}
                   </a>
                 </li>

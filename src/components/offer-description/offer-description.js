@@ -22,11 +22,11 @@ const OfferDescription = () => {
         )}
       </div>
       <div className="offer-description__links-container">
-        <a href="" className="offer-description__link">
+        <a href="/credit" className="offer-description__link">
           оставить заявку
         </a>
         <a
-          href=""
+          href="/credit"
           className="offer-description__link offer-description__link--secondary"
         >
           в кредит от 11 000 ₽
